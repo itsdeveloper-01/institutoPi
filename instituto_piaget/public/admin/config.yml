@@ -1,0 +1,19 @@
+backend:
+  name: github
+  repo: TU_USUARIO/instituto-piaget
+  branch: main         # la CMS hará PRs contra main
+  base_url: /api/auth/github   # Next.js API para OAuth
+media_folder: "public/uploads"
+public_folder: "/uploads"
+locale: "es"
+
+collections:
+  - name: "niveles"
+    label: "Niveles Educativos"
+    folder: "content/niveles"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {name: "title", label: "Título", widget: "string"}
+      - {name: "body", label: "Contenido", widget: "markdown"}
+      - {name: "nivel", label: "Nivel", widget: "select", options: ["maternal","kinder","primaria","secundaria","preparatoria"]}

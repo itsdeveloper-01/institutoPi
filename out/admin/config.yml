@@ -1,0 +1,21 @@
+
+backend:
+  name: github
+  repo: TU_USUARIO/TU_REPO
+  branch: main
+  base_url: http://localhost:3000
+  auth_endpoint: api/auth/github
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "niveles"
+    label: "Niveles Educativos"
+    folder: "content/niveles"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { name: "title", label: "Título", widget: "string" }
+      - { name: "description", label: "Descripción", widget: "text" }
+      - { name: "body", label: "Contenido", widget: "markdown" }

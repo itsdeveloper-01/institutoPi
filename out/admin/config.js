@@ -1,8 +1,8 @@
-
+// public/admin/config.js
 window.CMS.init({
   backend: {
     name: "github",
-    repo: "usuario/repo",
+    repo: "TU_USUARIO/TU_REPO", // ← Reemplaza con tu repo real
     branch: "main",
     base_url: "/",
     auth_endpoint: "api/auth/github"

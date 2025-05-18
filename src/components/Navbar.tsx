@@ -6,11 +6,11 @@ import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
 
 const links = [
-  { label: 'Maternal', href: '/maternal' },
-  { label: 'Kinder', href: '/kinder' },
-  { label: 'Primaria', href: '/primaria' },
-  { label: 'Secundaria', href: '/secundaria' },
-  { label: 'Preparatoria', href: '/preparatoria' },
+  { label: 'Maternal', href: '/educacion/maternal' },
+  { label: 'Kinder', href: '/educacion/kinder' },
+  { label: 'Primaria', href: '/educacion/primaria' },
+  { label: 'Secundaria', href: '/educacion/secundaria' },
+  { label: 'Preparatoria', href: '/educacion/preparatoria' },
 ];
 
 export default function Navbar() {

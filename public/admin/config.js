@@ -2,7 +2,7 @@
 window.CMS.init({
   backend: {
     name: "github",
-    repo: "TU_USUARIO/TU_REPO", // ← Reemplaza con tu repo real
+    repo: "itsdeveloper-01/institutoPi", // ← Reemplazar con repo real
     branch: "main",
     base_url: "/",
     auth_endpoint: "api/auth/github"

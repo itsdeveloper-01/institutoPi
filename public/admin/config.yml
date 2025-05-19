@@ -1,10 +1,8 @@
 
 backend:
-  name: github
-  repo: TU_USUARIO/TU_REPO
-  branch: main
-  base_url: http://localhost:3000
-  auth_endpoint: api/auth/github
+  name: git-gateway
+  branch: main        # rama donde Netlify hará los commits
+
 
 media_folder: "public/uploads"
 public_folder: "/uploads"

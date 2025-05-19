@@ -1,17 +1,24 @@
-<!-- public/admin/index.html -->
 <!DOCTYPE html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <title>CMS - Instituto Piaget</title>
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-      <!-- CSS decap-cms -->
-     <link rel="stylesheet" href="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.css"/>
+    <title>CMS Instituto Piaget</title>
+
+    <!-- Estilos del CMS -->
+    <link rel="stylesheet"
+      href="https://unpkg.com/decap-cms@^3/dist/decap-cms.css" />
+
+    <!-- Script principal del CMS (DEFER) -->
+    <script
+      src="https://unpkg.com/decap-cms@^3/dist/decap-cms.js"
+      defer></script>
+
+    <!-- Indicamos que iniciaremos manualmente -->
+    <script>window.CMS_MANUAL_INIT = true;</script>
+
+    <!-- Tu configuración (DEFER para que cargue DESPUÉS del CMS) -->
+    <script src="/admin/config.js" defer></script>
   </head>
-    <body>
-    <script>
-      window.CMS_MANUAL_INIT = true;
-    </script>
-    <script src="/admin/config.js"></script>
-  </body>
+
+  <body></body>
 </html>

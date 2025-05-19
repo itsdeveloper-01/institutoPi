@@ -1,6 +1,6 @@
 ---
-title: Primaria
-description: Conoce nuestra propuesta para el nivel Primaria.
+title: Maternal
+description: Conoce nuestra propuesta para el nivel Maternal.
 ---
 
-Bienvenido al nivel **Primaria** del Instituto Piaget.
+Bienvenido al nivel **Maternal** del Instituto Piaget.

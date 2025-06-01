@@ -1,0 +1,7 @@
+/* src/app/educacion/primaria/primaria.module.css */
+.container {
+  background-color: #fffdf8;
+}
+.header {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+}

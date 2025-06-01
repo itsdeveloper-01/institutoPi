@@ -4,31 +4,29 @@
     <meta charset="UTF-8" />
     <title>CMS Instituto Piaget</title>
 
-    <!-- Estilos del CMS -->
-    <link rel="stylesheet"
-      href="https://unpkg.com/decap-cms@^3/dist/decap-cms.css" />
+    <!-- 1) Hoja de estilos de Decap CMS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/decap-cms@^3/dist/decap-cms.css"
+    />
 
-    <!-- Script principal del CMS (DEFER) -->
+    <!-- 2) Script principal de Decap CMS (DEFER ayuda a la carga en orden) -->
     <script
       src="https://unpkg.com/decap-cms@^3/dist/decap-cms.js"
-      defer></script>
+      defer
+    ></script>
 
-    <!-- Indicamos que iniciaremos manualmente -->
+    <!-- 3) Widget de Netlify Identity -->
+    <script
+      src="https://identity.netlify.com/v1/netlify-identity-widget.js"
+      defer
+    ></script>
+
+    <!-- 4) Indicamos que iniciaremos el CMS manualmente -->
     <script>window.CMS_MANUAL_INIT = true;</script>
 
-    <!-- Tu configuración (DEFER para que cargue DESPUÉS del CMS) -->
+    <!-- 5) Tu configuración de collections/backend -->
     <script src="/admin/config.js" defer></script>
-
-    <script>
-  if (window.netlifyIdentity) {
-    window.netlifyIdentity.on("init", user => {
-      if (!user) window.netlifyIdentity.on("login", () => {
-        document.location.href = "/admin/";
-      });
-    });
-  }
-</script>
   </head>
-
   <body></body>
 </html>

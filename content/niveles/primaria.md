@@ -11,6 +11,10 @@ proyectos:
 ---
 Aquí va el contenido libre en Markdown que quieras mostrar en la sección inicial de Primaria. Puedes agregar tablas, listas, imágenes, etc.
 
-* prueba 
-* te quiero mucho K
-* mucho J
+* prueba para ver si funciona mi decap
+* Te quiero mucho 
+* Punto 3 de detalle
+
+  ![](https://www.psychologytoday.com/mx/blog/que-dice-la-evidencia-sobre-la-educacion-montessori)
+
+  ![](/uploads/santa.png)

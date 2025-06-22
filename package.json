@@ -2,17 +2,17 @@
   "name": "nextjs-tailwind-template",
   "version": "1.0.0",
   "scripts": {
-  "dev": "next dev",
-  "build": "next build",
-   "export": "next export",
-  "preview": "npx serve .next/static"
- },
+    "dev": "next dev",
+    "build": "next build",
+    "export": "next export",
+    "preview": "npx serve .next/static"
+  },
   "dependencies": {
     "gray-matter": "^4.0.3",
-    "lucide-react": "^0.511.0",
     "next": "14.2.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-icons": "^5.5.0",
     "react-markdown": "^10.1.0"
   },
   "devDependencies": {

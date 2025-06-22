@@ -3,7 +3,8 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { Menu, X } from 'lucide-react';
+import { IoIosMenu, IoMdClose } from "react-icons/io";
+
 
 const links = [
   { label: 'Maternal', href: '/educacion/maternal' },
@@ -28,7 +29,7 @@ export default function Navbar() {
           className="md:hidden text-gray-700 focus:outline-none"
           aria-label="Abrir menú"
         >
-          {open ? <X size={28} /> : <Menu size={28} />}
+          {open ? <IoMdClose size={28} /> : <IoIosMenu size={28} />}
         </button>
 
         <div className="hidden md:flex space-x-6">

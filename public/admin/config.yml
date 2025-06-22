@@ -1,19 +1,23 @@
-
 backend:
-  name: git-gateway
-  branch: main        # rama donde Netlify hará los commits
+  name: git-gateway        # usa Git Gateway con Netlify Identity
+  branch: main             # tu rama principal
 
-
-media_folder: "public/uploads"
+media_folder: "public/uploads"   # dónde subir imágenes desde Decap
 public_folder: "/uploads"
 
 collections:
   - name: "niveles"
     label: "Niveles Educativos"
-    folder: "content/niveles"
-    create: true
-    slug: "{{slug}}"
+    folder: "content/niveles"    # la carpeta donde están tus .md
+    create: false                # no permitirá crear archivos nuevos, solo editar los existentes
+    slug: "{{slug}}"             # el slug será el nombre del archivo sin extensión
     fields:
-      - { name: "title", label: "Título", widget: "string" }
-      - { name: "description", label: "Descripción", widget: "text" }
-      - { name: "body", label: "Contenido", widget: "markdown" }
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Descripción corta", name: "description", widget: "string" }
+      - label: "Proyectos y Talleres"
+        name: "proyectos"
+        widget: "list"
+        fields:
+          - { label: "Nombre del proyecto", name: "nombre", widget: "string" }
+          - { label: "Descripción del proyecto", name: "descripcion", widget: "text" }
+      - { label: "Contenido Markdown", name: "body", widget: "markdown" }

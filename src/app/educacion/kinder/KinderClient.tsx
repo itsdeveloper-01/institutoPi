@@ -162,10 +162,12 @@ export default function KinderClient({
           </div>
         )}
 
-        {/* Body Markdown desde el CMS */}
-        <ReactMarkdown className="prose prose-purple max-w-3xl mx-auto bg-white rounded-xl p-8 shadow-xl mt-12">
-          {body}
-        </ReactMarkdown>
+        {/* Markdown del CMS */}
+        {body && (
+          <div className="prose prose-purple max-w-3xl mx-auto bg-white rounded-xl p-8 shadow-xl mt-12">
+            <ReactMarkdown>{body}</ReactMarkdown>
+          </div>
+        )}
       </div>
     </div>
   );

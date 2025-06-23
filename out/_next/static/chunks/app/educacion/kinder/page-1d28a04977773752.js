@@ -1,1 +1,0 @@
-(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[978],{5734:function(e,n,_){Promise.resolve().then(_.t.bind(_,9452,23))},9452:function(e){e.exports={container:"kinder_container__6v7iG",header:"kinder_header__SeoJF"}}},function(e){e.O(0,[858,971,23,744],function(){return e(e.s=5734)}),_N_E=e.O()}]);

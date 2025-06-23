@@ -1,23 +1,47 @@
 backend:
-  name: git-gateway        # usa Git Gateway con Netlify Identity
-  branch: main             # tu rama principal
+  name: git-gateway
+  branch: main
 
-media_folder: "public/uploads"   # dónde subir imágenes desde Decap
+media_folder: "public/uploads"
 public_folder: "/uploads"
 
 collections:
   - name: "niveles"
     label: "Niveles Educativos"
-    folder: "content/niveles"    # la carpeta donde están tus .md
-    create: false                # no permitirá crear archivos nuevos, solo editar los existentes
-    slug: "{{slug}}"             # el slug será el nombre del archivo sin extensión
+    folder: "content/niveles"
+    create: false
+    slug: "{{slug}}"
     fields:
-      - { label: "Título", name: "title", widget: "string" }
-      - { label: "Descripción corta", name: "description", widget: "string" }
+      - { name: "title", label: "Título", widget: "string" }
+      - { name: "description", label: "Descripción", widget: "text" }
+      - { name: "body", label: "Contenido", widget: "markdown" }
+
+      - label: "Áreas de Desarrollo"
+        name: "areasDesarrollo"
+        widget: "list"
+        fields:
+          - { name: "icon", label: "Ícono", widget: "string" }
+          - { name: "title", label: "Título", widget: "string" }
+          - { name: "description", label: "Descripción", widget: "text" }
+          - { name: "color", label: "Color", widget: "string" }
+
+      - label: "Actividades Diarias"
+        name: "actividadesDiarias"
+        widget: "list"
+        fields:
+          - { name: "hora", label: "Hora", widget: "string" }
+          - { name: "actividad", label: "Actividad", widget: "string" }
+          - { name: "emoji", label: "Emoji", widget: "string" }
+
+      - label: "Habilidades"
+        name: "habilidades"
+        widget: "list"
+        field: { name: "habilidad", label: "Habilidad", widget: "string" }
+
       - label: "Proyectos y Talleres"
         name: "proyectos"
         widget: "list"
         fields:
           - { label: "Nombre del proyecto", name: "nombre", widget: "string" }
           - { label: "Descripción del proyecto", name: "descripcion", widget: "text" }
-      - { label: "Contenido Markdown", name: "body", widget: "markdown" }
+          - { label: "Contenido Markdown", name: "body", widget: "markdown" }

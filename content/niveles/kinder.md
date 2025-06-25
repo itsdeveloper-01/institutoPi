@@ -1,6 +1,6 @@
 ---
 title: Kinder Piaget Prueba
-description: Etapa mágica de descubrimiento para niños de 3 a 6 años
+description: Etapa mágica de descubrimiento para niños de 3 a 6 años - Prueba CMS
 areasDesarrollo:
   - icon: 🎨
     title: Arte y Creatividad
@@ -28,7 +28,7 @@ areasDesarrollo:
     description: Trabajo en equipo, empatía, respeto y comunicación
     color: from-indigo-400 to-blue-400
 actividadesDiarias:
-  - hora: 8:00 - 8:30
+  - hora: 8:00 - 8:30 - Prueba CMS
     actividad: ¡Buenos días! Círculo de bienvenida
     emoji: 🌅
   - hora: 8:30 - 9:30
@@ -62,7 +62,7 @@ actividadesDiarias:
     actividad: Despedida y juego libre
     emoji: 👋
 habilidades:
-  - Reconocimiento de letras y sonidos
+  - Reconocimiento de letras y sonidos - Prueba CMS
   - Conteo hasta 50
   - Escritura de su nombre
   - Seguimiento de instrucciones
@@ -71,18 +71,17 @@ habilidades:
   - Cuidado personal
   - Resolución de conflictos
 ---
-
 ## 🎯 Nuestra Filosofía
 
 En Kinder Piaget creemos que cada niño es único y especial. Nuestro enfoque combina el juego con el aprendizaje significativo, creando experiencias memorables que despiertan la curiosidad natural de los pequeños.
 
-Preparamos a nuestros estudiantes para la primaria desarrollando habilidades académicas, sociales y emocionales en un ambiente cálido y estimulante.
+Preparamos a nuestros estudiantes para la primaria desarrollando habilidades académicas, sociales y emocionales en un ambiente cálido y estimulante. Prueba CMS
 
----
+- - -
 
 ## ✨ Nuestros Valores
 
-- 🌟 Respeto y diversidad  
-- 💝 Amor por aprender  
-- 🤝 Trabajo en equipo  
-- 🎨 Creatividad sin límites
+* 🌟 Respeto y diversidad  
+* 💝 Amor por aprender  
+* 🤝 Trabajo en equipo  
+* 🎨 Creatividad sin límites

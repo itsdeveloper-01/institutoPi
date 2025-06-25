@@ -1,6 +1,6 @@
 ---
-title: Kinder Piaget Prueba
-description: Etapa mágica de descubrimiento para niños de 3 a 6 años - Prueba CMS
+title: Kinder Piaget
+description: Etapa mágica de descubrimiento para niños de 3 a 6 años
 areasDesarrollo:
   - icon: 🎨
     title: Arte y Creatividad

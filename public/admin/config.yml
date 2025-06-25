@@ -1,47 +1,230 @@
-backend:
-  name: git-gateway
-  branch: main
+# ================================================================
+#  Configuración Decap CMS  –  Instituto Pi · Niveles educativos
+# ================================================================
 
-media_folder: "public/uploads"
-public_folder: "/uploads"
+backend:
+  name: github
+  repo: itsdeveloper-01/institutoPi        # ← cámbialo por tu repo real
+  branch: main
+  base_url: "/"
+  auth_endpoint: "api/auth/github"
+
+media_folder: "public/uploads"             # Archivos subidos van a /public/uploads
+public_folder: "/uploads"                  # Cómo los ve el sitio en producción
+locale: es                                 # UI del CMS en español
 
 collections:
+  # ───────────────────────────────────────────────────────────────
+  # Colección “niveles” con strategy = files
+  # Cada nivel (kinder, maternal, etc.) apunta a su propio .md
+  # ───────────────────────────────────────────────────────────────
   - name: "niveles"
     label: "Niveles Educativos"
-    folder: "content/niveles"
-    create: false
-    slug: "{{slug}}"
-    fields:
-      - { name: "title", label: "Título", widget: "string" }
-      - { name: "description", label: "Descripción", widget: "text" }
-      - { name: "body", label: "Contenido", widget: "markdown" }
+    label_singular: "Nivel"
+    description: "Contenido administrado por cada nivel escolar"
+    files:
 
-      - label: "Áreas de Desarrollo"
-        name: "areasDesarrollo"
-        widget: "list"
+      # ==========================================================
+      # 1. K I N D E R
+      # ==========================================================
+      - file: "content/niveles/kinder.md"
+        label: "Kinder"
+        name: "kinder"
+        description: "Contenido específico del nivel Kinder"
         fields:
-          - { name: "icon", label: "Ícono", widget: "string" }
-          - { name: "title", label: "Título", widget: "string" }
-          - { name: "description", label: "Descripción", widget: "text" }
-          - { name: "color", label: "Color", widget: "string" }
+          # — Hero y descripción opcional —
+          - { name: "title", label: "Título Hero (opcional)", widget: "string", required: false }
+          - { name: "description", label: "Descripción Hero (opcional)", widget: "text", required: false }
 
-      - label: "Actividades Diarias"
-        name: "actividadesDiarias"
-        widget: "list"
+          # — Áreas de desarrollo (tarjetas) —
+          - label: "Áreas de Desarrollo"
+            name: "areasDesarrollo"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { name: "icon",  label: "Emoji / Icono",   widget: "string" }
+              - { name: "title", label: "Título",          widget: "string" }
+              - { name: "description", label: "Descripción", widget: "text" }
+              - { name: "color", label: "Color principal (Tailwind)", widget: "string", required: false }
+
+          # — Actividades diarias —
+          - label: "Actividades Diarias"
+            name: "actividadesDiarias"
+            widget: "list"
+            fields:
+              - { name: "hora",      label: "Hora",      widget: "string" }
+              - { name: "actividad", label: "Actividad", widget: "string" }
+              - { name: "emoji",     label: "Emoji",     widget: "string" }
+
+          # — Habilidades (lista simple) —
+          - label: "Habilidades"
+            name: "habilidades"
+            widget: "list"
+            field: { label: "Habilidad", name: "habilidad", widget: "string" }
+
+          # — Cuerpo markdown libre (sección extra opcional) —
+          - { name: "body", label: "Contenido Markdown libre", widget: "markdown", required: false }
+
+      # ==========================================================
+      # 2. M A T E R N A L
+      # ==========================================================
+      - file: "content/niveles/maternal.md"
+        label: "Maternal"
+        name: "maternal"
+        description: "Contenido específico del nivel Maternal"
         fields:
-          - { name: "hora", label: "Hora", widget: "string" }
-          - { name: "actividad", label: "Actividad", widget: "string" }
-          - { name: "emoji", label: "Emoji", widget: "string" }
 
-      - label: "Habilidades"
-        name: "habilidades"
-        widget: "list"
-        field: { name: "habilidad", label: "Habilidad", widget: "string" }
+          # ---------- Hero ----------
+          - { name: "heroTitle",    label: "Título Hero",    widget: "string" }
+          - { name: "heroSubtitle", label: "Subtítulo Hero", widget: "text",   required: false }
 
-      - label: "Proyectos y Talleres"
-        name: "proyectos"
-        widget: "list"
-        fields:
-          - { label: "Nombre del proyecto", name: "nombre", widget: "string" }
-          - { label: "Descripción del proyecto", name: "descripcion", widget: "text" }
-          - { label: "Contenido Markdown", name: "body", widget: "markdown" }
+          # ---------- Pestañas ----------
+          - label: "Pestañas"
+            name: "tabs"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { name: "metodo",        label: "Etiqueta tab Método",        widget: "string" }
+              - { name: "actividades",   label: "Etiqueta tab Actividades",   widget: "string" }
+              - { name: "horarios",      label: "Etiqueta tab Horarios",      widget: "string" }
+              - { name: "instalaciones", label: "Etiqueta tab Instalaciones", widget: "string" }
+
+          # ---------- Método Montessori ----------
+          - label: "Método Montessori"
+            name: "metodo"
+            widget: "object"
+            collapsed: false
+            fields:
+              - { name: "intro1",    label: "Introducción 1", widget: "text" }
+              - { name: "intro2",    label: "Introducción 2", widget: "text", required: false }
+              - label: "Principios"
+                name: "principios"
+                widget: "list"
+                field: { label: "Principio", name: "principio", widget: "string" }
+
+          # ---------- Beneficios (cards) ----------
+          - label: "Beneficios"
+            name: "beneficios"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { name: "icon",        label: "Emoji/Icono", widget: "string" }
+              - { name: "title",       label: "Título",       widget: "string" }
+              - { name: "description", label: "Descripción",  widget: "text" }
+
+          # ---------- Actividades y Galería ----------
+          - label: "Actividades"
+            name: "actividades"
+            widget: "list"
+            summary: "{{fields.categoria}}"
+            fields:
+              - { name: "categoria", label: "Categoría", widget: "string" }
+              - label: "Items"
+                name: "items"
+                widget: "list"
+                field: { label: "Actividad", name: "actividad", widget: "string" }
+          - label: "Galería de Actividades"
+            name: "galeria"
+            widget: "list"
+            required: false
+            fields:
+              - { name: "emoji",   label: "Emoji",   widget: "string" }
+              - { name: "caption", label: "Texto",   widget: "string" }
+
+          # ---------- Horarios / Alimentación / Descanso ----------
+          - label: "Horarios"
+            name: "horarios"
+            widget: "list"
+            fields:
+              - { name: "hora",      label: "Hora",      widget: "string" }
+              - { name: "actividad", label: "Actividad", widget: "string" }
+          - label: "Alimentación"
+            name: "alimentacion"
+            widget: "list"
+            required: false
+            field: { label: "Punto", name: "punto", widget: "string" }
+          - label: "Descanso"
+            name: "descanso"
+            widget: "list"
+            required: false
+            field: { label: "Punto", name: "punto", widget: "string" }
+
+          # ---------- Instalaciones ----------
+          - label: "Instalaciones"
+            name: "instalaciones"
+            widget: "object"
+            collapsed: true
+            fields:
+              # Repite este bloque por cada sección (aulas, seguridad, etc.)
+              - label: "Aulas"
+                name: "aulas"
+                widget: "object"
+                fields:
+                  - { name: "title", label: "Título", widget: "string" }
+                  - { name: "color", label: "Color Tailwind (blue, green, etc.)", widget: "string" }
+                  - label: "Items"
+                    name: "items"
+                    widget: "list"
+                    field: { label: "Item", name: "item", widget: "string" }
+
+              - label: "Seguridad"
+                name: "seguridad"
+                widget: "object"
+                fields:
+                  - { name: "title", label: "Título", widget: "string" }
+                  - { name: "color", label: "Color Tailwind", widget: "string" }
+                  - label: "Items"
+                    name: "items"
+                    widget: "list"
+                    field: { label: "Item", name: "item", widget: "string" }
+
+              - label: "Áreas Especiales"
+                name: "especiales"
+                widget: "object"
+                fields:
+                  - { name: "title", label: "Título", widget: "string" }
+                  - { name: "color", label: "Color Tailwind", widget: "string" }
+                  - label: "Items"
+                    name: "items"
+                    widget: "list"
+                    field: { label: "Item", name: "item", widget: "string" }
+
+              - label: "Higiene"
+                name: "higiene"
+                widget: "object"
+                fields:
+                  - { name: "title", label: "Título", widget: "string" }
+                  - { name: "color", label: "Color Tailwind", widget: "string" }
+                  - label: "Items"
+                    name: "items"
+                    widget: "list"
+                    field: { label: "Item", name: "item", widget: "string" }
+
+          # ---------- Testimonios ----------
+          - label: "Testimonios"
+            name: "testimonios"
+            widget: "list"
+            required: false
+            fields:
+              - { name: "nombre",     label: "Nombre",       widget: "string" }
+              - { name: "edad_hijo",  label: "Edad del hijo", widget: "string" }
+              - { name: "testimonio", label: "Testimonio",   widget: "text" }
+              - { name: "foto",       label: "Emoji/Foto",   widget: "string" }
+
+          # ---------- CTA final ----------
+          - label: "CTA Final"
+            name: "cta"
+            widget: "object"
+            fields:
+              - { name: "titulo", label: "Título CTA", widget: "string" }
+              - { name: "texto",  label: "Texto CTA",  widget: "text" }
+              - label: "Botones"
+                name: "botones"
+                widget: "list"
+                fields:
+                  - { name: "texto",  label: "Texto",  widget: "string" }
+                  - { name: "link",   label: "Link",   widget: "string" }
+                  - { name: "estilo", label: "Estilo (primary/secondary)", widget: "string", required: false }
+
+          # ---------- Cuerpo Markdown libre ----------
+          - { name: "body", label: "Contenido Markdown libre", widget: "markdown", required: false }

@@ -4,7 +4,8 @@ description: Etapa mágica de descubrimiento para niños de 3 a 6 años
 areasDesarrollo:
   - icon: 🎨
     title: Arte y Creatividad
-    description: Expresión artística, pintura, manualidades y desarrollo de la creatividad
+    description: Expresión artística, pintura, manualidades y desarrollo de la
+      creatividad - Prueba de CMS
     color: from-pink-400 to-red-400
   - icon: 🔤
     title: Lectoescritura

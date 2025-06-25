@@ -37,4 +37,4 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# out es necesario para publicación estática en Netlify
+
